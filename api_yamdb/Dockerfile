@@ -22,6 +22,6 @@ COPY . /app
 WORKDIR /app
 
 # Выполнить запуск сервера разработки при старте контейнера.
-CMD ["python", "manage.py", "runserver", "0:8000"]
+CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000"]
 
 LABEL author='iam' version=0.01 broken_keyboards=1
