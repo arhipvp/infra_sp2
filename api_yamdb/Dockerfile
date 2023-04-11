@@ -16,12 +16,12 @@ RUN pip3 install -r /app/requirements.txt --no-cache-dir
 
 # Скопировать содержимое директории /api_yamdb c локального компьютера
 # в директорию /app.
-COPY api_yamdb/ /app
+COPY . /app
 
 # Сделать директорию /app рабочей директорией. 
 WORKDIR /app
 
 # Выполнить запуск сервера разработки при старте контейнера.
-CMD ["python3", "manage.py", "runserver", "0:8000"]
+CMD ["python", "manage.py", "runserver", "0:8000"]
 
 LABEL author='iam' version=0.01 broken_keyboards=1
