@@ -1,3 +1,5 @@
+LABEL author='iam' version=0.01 broken_keyboards=1
+
 FROM python:3.7-slim
 
 WORKDIR /app
@@ -6,8 +8,6 @@ COPY requirements.txt .
 
 RUN pip3 install -r requirements.txt --no-cache-dir
 
-COPY . /app
+COPY . .
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000"]
-
-LABEL author='iam' version=0.01 broken_keyboards=1
